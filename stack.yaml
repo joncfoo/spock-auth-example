@@ -1,0 +1,10 @@
+resolver: lts-7.14
+
+packages:
+- '.'
+
+nix:
+  enable: true
+  packages:
+  - binutils
+  - zlib
