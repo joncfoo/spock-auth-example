@@ -32,7 +32,7 @@ data Role = Author | Admin
 type Session = Maybe User
 
 
--- data types which we will use as constraints further below
+-- data types which we will use as authorization constraints further below
 data IsGuest = IsGuest
 data IsAuthor = IsAuthor
 data IsAdmin = IsAdmin
@@ -68,23 +68,23 @@ webapp =
     do get "/" (text "anyone can access this")
 
        prehook guestHook $
-       -- only guests can access these routes
+       -- only guests are authorized to use these routes
 
          do get "/guest" (text "hi guest!")
             post "/sign-in" signInAction
 
        prehook userHook $
-       -- only accessible if the user is logged in
+       -- only logged in users are authorized to use these routes
 
          do get "/sign-out" signOutAction
             get "/secret" secretAction
 
             prehook (roleHook IsAdmin) $
-              -- only accessible if the user is an admin
+              -- only admin is authorized
               get "/settings" settingsAction
 
             prehook (roleHook IsAuthor) $
-              -- only accessible if the user is an author
+              -- only author is authorized
               get "/lounge" authorLoungeAction
 
 
