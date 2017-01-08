@@ -1,7 +1,7 @@
 name:                spock-auth-example
 version:             0.1.0.0
-synopsis:            Example project demonstrating type-level authentication with the Spock web framework
-description:         Example project demonstrating type-level authentication with the Spock web framework
+synopsis:            Example project demonstrating type-level authentication & authorization with the Spock web framework
+description:         Example project demonstrating type-level authentication & authorization with the Spock web framework
 homepage:            https://gitlab.com/joncfoo/spock-auth-example
 license:             ISC
 license-file:        LICENSE
